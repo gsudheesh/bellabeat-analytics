@@ -118,7 +118,7 @@ Only 13 of 35 users logged weight data, with some logging as few as once across 
 
 ## Dashboard
 
-**[View Live Looker Studio Dashboard →](YOUR_LOOKER_STUDIO_LINK_HERE)**
+**[View Live Looker Studio Dashboard →](https://datastudio.google.com/reporting/cc39169a-814f-42aa-8b67-754e7ed2d566)**
 
 Four pages covering:
 - Overview — user count, activity segment distribution
