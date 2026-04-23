@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: dailyactivity_p1
+      - name: dailyactivity_p2
+      - name: sleepday
+      - name: weightloginfo_p1
+      - name: weightloginfo_p2
+      - name: hourlysteps_p1
+      - name: hourlysteps_p2
+      - name: hourlycalories_p1
+      - name: hourlycalories_p2
+      - name: hourlyintensities_p1
+      - name: hourlyintensities_p2
+      - name: minutecaloriesnarrow_p1
+      - name: minutecaloriesnarrow_p2
+      - name: minuteintensitiesnarrow_p1
+      - name: minuteintensitiesnarrow_p2
+      - name: minutestepsnarrow_p1
+      - name: minutestepsnarrow_p2
+      - name: minutemetsnarrow_p1
+      - name: minutemetsnarrow_p2
+      - name: minutesleep_p1
+      - name: minutesleep_p2

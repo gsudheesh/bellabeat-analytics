@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_daily_activity
+    description: "Cleaned and deduplicated daily activity from both Fitbit export periods"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: activity_date
+        tests:
+          - not_null
+
+  - name: stg_sleep
+    description: "Sleep records with efficiency metric derived from time in bed vs asleep"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: sleep_date
+        tests:
+          - not_null
+
+  - name: stg_hourly_activity
+    description: "Deduplicated hourly steps, calories and intensities joined into single table"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: activity_datetime
+        tests:
+          - not_null

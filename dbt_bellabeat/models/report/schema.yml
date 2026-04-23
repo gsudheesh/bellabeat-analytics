@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: rpt_activity_sleep_dataset
+    description: "Primary BI table combining activity and sleep — used as main Looker Studio data source"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: activity_date
+        tests:
+          - not_null
+
+  - name: rpt_hourly_behavior_summary
+    description: "Hourly averages for steps, calories, intensity — answers when are users most active"
+    columns:
+      - name: hour_of_day
+        tests:
+          - not_null
+          - unique
+
+  - name: rpt_user_activity_segments
+    description: "User segmentation by average daily step count"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+
+  - name: rpt_sleep_activity_summary
+    description: "Sleep quality metrics grouped by activity level — key insight for Bellabeat recommendations"
+
+  - name: rpt_weight_summary
+    description: "Per-user weight and BMI tracking summary"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique

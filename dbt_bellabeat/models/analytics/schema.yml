@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: daily_activity
+    description: "Daily activity enriched with derived fields: activity level, day name, total active minutes"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: activity_date
+        tests:
+          - not_null
+      - name: activity_level
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Sedentary', 'Low Active', 'Moderately Active', 'Highly Active']
+
+  - name: user_activity_summary
+    description: "Per-user aggregated activity averages across the full tracking period"
+    columns:
+      - name: id
+        tests:
+          - not_null
+          - unique
+
+  - name: activity_sleep
+    description: "Daily activity left-joined with sleep data for correlation analysis"
+    columns:
+      - name: id
+        tests:
+          - not_null
+
+  - name: hourly_activity
+    description: "Hourly activity with time dimensions for peak-hours analysis"
+    columns:
+      - name: id
+        tests:
+          - not_null
+      - name: activity_datetime
+        tests:
+          - not_null
