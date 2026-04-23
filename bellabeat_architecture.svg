@@ -1,0 +1,199 @@
+<svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8829a"/>
+      <stop offset="100%" style="stop-color:#c2607a"/>
+    </linearGradient>
+    <linearGradient id="darkBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a4a"/>
+      <stop offset="100%" style="stop-color:#1e1e3a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#c2607a" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c2607a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="420" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="70" x2="1000" y2="70"/>
+    <line x1="0" y1="140" x2="1000" y2="140"/>
+    <line x1="0" y1="210" x2="1000" y2="210"/>
+    <line x1="0" y1="280" x2="1000" y2="280"/>
+    <line x1="0" y1="350" x2="1000" y2="350"/>
+  </g>
+
+  <!-- Title -->
+  <text x="500" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#e8829a" letter-spacing="3" filter="url(#glow)">BELLABEAT FITNESS ANALYTICS</text>
+  <text x="500" y="56" text-anchor="middle" font-size="10" fill="#7a7a9a" letter-spacing="4">END-TO-END DATA PIPELINE ARCHITECTURE</text>
+
+  <!-- Layer labels on left -->
+  <text x="18" y="158" font-size="8" fill="#7a7a9a" letter-spacing="2" transform="rotate(-90, 18, 158)">INGEST</text>
+  <text x="18" y="238" font-size="8" fill="#7a7a9a" letter-spacing="2" transform="rotate(-90, 18, 238)">STAGE</text>
+  <text x="18" y="318" font-size="8" fill="#7a7a9a" letter-spacing="2" transform="rotate(-90, 18, 318)">MODEL</text>
+
+  <!-- ── BOX 1: Raw CSVs ── -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="80" width="130" height="130" rx="8" fill="url(#darkBox)" stroke="#c2607a" stroke-width="1.5"/>
+  </g>
+  <rect x="40" y="80" width="130" height="6" rx="3" fill="url(#pinkGrad)"/>
+  <text x="105" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8829a">RAW CSVs</text>
+  <text x="105" y="122" text-anchor="middle" font-size="8.5" fill="#9a9ab8">Kaggle / Fitbit</text>
+  <line x1="55" y1="132" x2="155" y2="132" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="105" y="148" text-anchor="middle" font-size="8" fill="#7a7a9a">29 CSV files</text>
+  <text x="105" y="163" text-anchor="middle" font-size="8" fill="#7a7a9a">2 export periods</text>
+  <text x="105" y="178" text-anchor="middle" font-size="8" fill="#7a7a9a">Mar – May 2016</text>
+  <text x="105" y="196" text-anchor="middle" font-size="8" fill="#c2607a">2.77M minute rows</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="172" y1="145" x2="208" y2="145" stroke="#c2607a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="190" y="138" text-anchor="middle" font-size="7" fill="#7a7a9a">COPY</text>
+
+  <!-- ── BOX 2: PostgreSQL raw ── -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="80" width="145" height="130" rx="8" fill="url(#darkBox)" stroke="#c2607a" stroke-width="1.5"/>
+  </g>
+  <rect x="210" y="80" width="145" height="6" rx="3" fill="url(#pinkGrad)"/>
+  <text x="282" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8829a">POSTGRESQL 16</text>
+  <text x="282" y="122" text-anchor="middle" font-size="8.5" fill="#9a9ab8">raw schema</text>
+  <line x1="225" y1="132" x2="340" y2="132" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="282" y="148" text-anchor="middle" font-size="8" fill="#7a7a9a">28 tables</text>
+  <text x="282" y="163" text-anchor="middle" font-size="8" fill="#7a7a9a">Exact CSV copies</text>
+  <text x="282" y="178" text-anchor="middle" font-size="8" fill="#7a7a9a">Append-only</text>
+  <text x="282" y="196" text-anchor="middle" font-size="8" fill="#c2607a">DBeaver 26 IDE</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="357" y1="145" x2="393" y2="145" stroke="#c2607a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="375" y="138" text-anchor="middle" font-size="7" fill="#7a7a9a">dbt run</text>
+
+  <!-- ── BOX 3: dbt staging ── -->
+  <g filter="url(#shadow)">
+    <rect x="395" y="80" width="145" height="130" rx="8" fill="url(#darkBox)" stroke="#c2607a" stroke-width="1.5"/>
+  </g>
+  <rect x="395" y="80" width="145" height="6" rx="3" fill="url(#pinkGrad)"/>
+  <text x="467" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8829a">dbt STAGING</text>
+  <text x="467" y="122" text-anchor="middle" font-size="8.5" fill="#9a9ab8">stg schema</text>
+  <line x1="410" y1="132" x2="525" y2="132" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="467" y="148" text-anchor="middle" font-size="8" fill="#7a7a9a">15 models</text>
+  <text x="467" y="163" text-anchor="middle" font-size="8" fill="#7a7a9a">Type casting</text>
+  <text x="467" y="178" text-anchor="middle" font-size="8" fill="#7a7a9a">Deduplication</text>
+  <text x="467" y="196" text-anchor="middle" font-size="8" fill="#c2607a">24 dupes removed</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="542" y1="145" x2="578" y2="145" stroke="#c2607a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="560" y="138" text-anchor="middle" font-size="7" fill="#7a7a9a">dbt run</text>
+
+  <!-- ── BOX 4: dbt analytics ── -->
+  <g filter="url(#shadow)">
+    <rect x="580" y="80" width="145" height="130" rx="8" fill="url(#darkBox)" stroke="#c2607a" stroke-width="1.5"/>
+  </g>
+  <rect x="580" y="80" width="145" height="6" rx="3" fill="url(#pinkGrad)"/>
+  <text x="652" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8829a">dbt ANALYTICS</text>
+  <text x="652" y="122" text-anchor="middle" font-size="8.5" fill="#9a9ab8">analytics schema</text>
+  <line x1="595" y1="132" x2="710" y2="132" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="652" y="148" text-anchor="middle" font-size="8" fill="#7a7a9a">4 models</text>
+  <text x="652" y="163" text-anchor="middle" font-size="8" fill="#7a7a9a">Business logic</text>
+  <text x="652" y="178" text-anchor="middle" font-size="8" fill="#7a7a9a">Derived metrics</text>
+  <text x="652" y="196" text-anchor="middle" font-size="8" fill="#c2607a">Activity segments</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="727" y1="145" x2="763" y2="145" stroke="#c2607a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="745" y="138" text-anchor="middle" font-size="7" fill="#7a7a9a">dbt run</text>
+
+  <!-- ── BOX 5: dbt report ── -->
+  <g filter="url(#shadow)">
+    <rect x="765" y="80" width="145" height="130" rx="8" fill="url(#darkBox)" stroke="#c2607a" stroke-width="1.5"/>
+  </g>
+  <rect x="765" y="80" width="145" height="6" rx="3" fill="url(#pinkGrad)"/>
+  <text x="837" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8829a">dbt REPORT</text>
+  <text x="837" y="122" text-anchor="middle" font-size="8.5" fill="#9a9ab8">report schema</text>
+  <line x1="780" y1="132" x2="895" y2="132" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="837" y="148" text-anchor="middle" font-size="8" fill="#7a7a9a">5 BI-ready tables</text>
+  <text x="837" y="163" text-anchor="middle" font-size="8" fill="#7a7a9a">Pre-aggregated</text>
+  <text x="837" y="178" text-anchor="middle" font-size="8" fill="#7a7a9a">1,376 rows</text>
+  <text x="837" y="196" text-anchor="middle" font-size="8" fill="#c2607a">23 dbt tests ✓</text>
+
+  <!-- Arrow 5 down to Google Sheets -->
+  <line x1="837" y1="212" x2="837" y2="248" stroke="#c2607a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+  <text x="855" y="235" font-size="7" fill="#7a7a9a">CSV export</text>
+
+  <!-- ── BOX 6: Google Sheets ── -->
+  <g filter="url(#shadow)">
+    <rect x="765" y="250" width="145" height="80" rx="8" fill="url(#darkBox)" stroke="#4a9a6a" stroke-width="1.5"/>
+  </g>
+  <rect x="765" y="250" width="145" height="5" rx="3" fill="#4a9a6a"/>
+  <text x="837" y="272" text-anchor="middle" font-size="11" font-weight="bold" fill="#6abf8a">GOOGLE SHEETS</text>
+  <line x1="780" y1="280" x2="895" y2="280" stroke="#3a3a5a" stroke-width="1"/>
+  <text x="837" y="295" text-anchor="middle" font-size="8" fill="#7a7a9a">5 connected sheets</text>
+  <text x="837" y="310" text-anchor="middle" font-size="8" fill="#7a7a9a">Data source layer</text>
+
+  <!-- Arrow Sheets → Looker -->
+  <line x1="837" y1="332" x2="837" y2="348" stroke="#4a9a6a" stroke-width="1.5" marker-end="url(#arrow)" stroke-dasharray="4,2"/>
+
+  <!-- ── BOX 7: Looker Studio ── -->
+  <g filter="url(#shadow)">
+    <rect x="765" y="350" width="145" height="50" rx="8" fill="#1a3a2a" stroke="#4a9a6a" stroke-width="2"/>
+  </g>
+  <rect x="765" y="350" width="145" height="5" rx="3" fill="#4a9a6a"/>
+  <text x="837" y="372" text-anchor="middle" font-size="11" font-weight="bold" fill="#6abf8a">LOOKER STUDIO</text>
+  <text x="837" y="388" text-anchor="middle" font-size="8" fill="#9a9ab8">4-page dashboard · Live</text>
+
+  <!-- ── BOTTOM STATS BAR ── -->
+  <rect x="40" y="260" width="700" height="140" rx="8" fill="#16163a" stroke="#2a2a4a" stroke-width="1"/>
+  <text x="390" y="282" text-anchor="middle" font-size="9" font-weight="bold" fill="#7a7a9a" letter-spacing="3">PIPELINE STATS</text>
+
+  <!-- Stat items -->
+  <!-- Col 1 -->
+  <text x="110" y="310" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">47</text>
+  <text x="110" y="326" text-anchor="middle" font-size="8" fill="#7a7a9a">Total Tables</text>
+  <text x="110" y="355" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">35</text>
+  <text x="110" y="371" text-anchor="middle" font-size="8" fill="#7a7a9a">Unique Users</text>
+
+  <!-- Col 2 -->
+  <text x="250" y="310" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">15</text>
+  <text x="250" y="326" text-anchor="middle" font-size="8" fill="#7a7a9a">dbt Models</text>
+  <text x="250" y="355" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">23</text>
+  <text x="250" y="371" text-anchor="middle" font-size="8" fill="#7a7a9a">dbt Tests · 100% ✓</text>
+
+  <!-- Col 3 -->
+  <text x="390" y="310" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">2.77M</text>
+  <text x="390" y="326" text-anchor="middle" font-size="8" fill="#7a7a9a">Minute Records</text>
+  <text x="390" y="355" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">1,373</text>
+  <text x="390" y="371" text-anchor="middle" font-size="8" fill="#7a7a9a">Clean Daily Records</text>
+
+  <!-- Col 4 -->
+  <text x="540" y="310" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">29</text>
+  <text x="540" y="326" text-anchor="middle" font-size="8" fill="#7a7a9a">Source CSVs</text>
+  <text x="540" y="355" text-anchor="middle" font-size="22" font-weight="bold" fill="#e8829a">4</text>
+  <text x="540" y="371" text-anchor="middle" font-size="8" fill="#7a7a9a">Dashboard Pages</text>
+
+  <!-- Dividers -->
+  <line x1="175" y1="295" x2="175" y2="385" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="315" y1="295" x2="315" y2="385" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="460" y1="295" x2="460" y2="385" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Tech stack footer -->
+  <text x="390" y="398" text-anchor="middle" font-size="7.5" fill="#5a5a7a" letter-spacing="2">PostgreSQL 16  ·  DBeaver 26  ·  dbt Core 1.11  ·  Git / GitHub  ·  Looker Studio  ·  macOS Apple M5</text>
+
+  <!-- Decorative corner accents -->
+  <path d="M40,80 L55,80 L55,86" fill="none" stroke="#c2607a" stroke-width="1.5"/>
+  <path d="M960,80 L945,80 L945,86" fill="none" stroke="#c2607a" stroke-width="1.5"/>
+  <path d="M40,400 L55,400 L55,394" fill="none" stroke="#c2607a" stroke-width="1.5"/>
+  <path d="M960,400 L945,400 L945,394" fill="none" stroke="#c2607a" stroke-width="1.5"/>
+</svg>
